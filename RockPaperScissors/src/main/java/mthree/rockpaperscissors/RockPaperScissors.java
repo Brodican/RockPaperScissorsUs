@@ -145,13 +145,13 @@ import java.util.Scanner;
                 // Print error and quit if input out of bounds
                 System.out.println("The round count must be 1 - 10.");
                 System.exit(0);
-                return 0;
             }
         } catch(Exception e) {
             System.out.println("The round count must be an integer.");
             System.exit(0);
-            return 0;
         }
+        
+        return 0;
     }
     
     // Returns player input on their choice to play again
