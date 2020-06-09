@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author utkua
  */
-public class RockPaperScissors {
+  public class RockPaperScissors {
     
     // Global scanner used in multiple methods
     static Scanner s;
@@ -54,29 +54,35 @@ public class RockPaperScissors {
             
             // Inner round loop, loops once per round
             while (roundCount < rounds) {
+                // Output remaining rounds
+                System.out.println("Remaining rounds: " + (rounds - roundCount));
+                // Get player choice
                 choice = ChooseMove();
+                // Random computer choice
                 compChoice = r.nextInt(3) + 1;
                 
                 // If player and computer moves equal, tie
                 if (compChoice == choice) {
                     // Print choices, result, and increment tie count to indicate tie
-                    System.out.println("Computer choice: " + choices[compChoice - 1] + ", your choice: " + choices[choice - 1]);
-                    System.out.println("Tie");
+                    System.out.println();
+                    System.out.println("Computer choice: " + choices[compChoice - 1] + " -- Your choice: " + choices[choice - 1]);
+                    System.out.println("Tie\n");
                     tieCount++;
                 } 
-                // If player choice 1 above computer choice, mod 3
-                // mod 3 because 3 moves
+                // If player choice 1 above computer choice, mod 3 - mod 3 because 3 moves
                 else if ((choice % 3) == (compChoice + 1) % 3) {
                     // Print choices, result, and increment win count to indicate win
-                    System.out.println("Computer choice: " + choices[compChoice - 1] + ", your choice: " + choices[choice - 1]);
-                    System.out.println("Win");
+                    System.out.println();
+                    System.out.println("Computer choice: " + choices[compChoice - 1] + " -- Your choice: " + choices[choice - 1]);
+                    System.out.println("Win\n");
                     winCount++;
                 }
                 // Otherwise computer wins
                 else {
                     // Print choices, result, and increment loss count to indicate loss
-                    System.out.println("Computer choice: " + choices[compChoice - 1] + ", your choice: " + choices[choice - 1]);
-                    System.out.println("Loss");
+                    System.out.println();
+                    System.out.println("Computer choice: " + choices[compChoice - 1] + " -- Your choice: " + choices[choice - 1]);
+                    System.out.println("Loss\n");
                     lossCount++;
                 }
                 // Increment to indicate another round is done
@@ -86,9 +92,9 @@ public class RockPaperScissors {
             // Print tie, win, and loss count
             System.out.println("Ties: " + tieCount + ".");
             System.out.println("Wins: " + winCount + ".");
-            System.out.println("Losses: " + lossCount + ".");
+            System.out.println("Losses: " + lossCount + ".\n");
             
-            // Ask player if they want to play again, playAgain true if so so out loop loops again
+            // Ask player if they want to play again, playAgain true if so outer loop loops again
             playAgain = ChooseAgain();;
         }
     }
@@ -97,6 +103,7 @@ public class RockPaperScissors {
     private static int ChooseMove() {
         
         // Ask for choice input
+        System.out.println();
         System.out.print("Input a choice - 1 for Rock, 2 for Paper, 3 for Scissors: ");
         // Loop until correct input
         do {
@@ -123,6 +130,7 @@ public class RockPaperScissors {
     private static int ChooseRounds() {
         
         // Ask for round count input
+        System.out.println();
         System.out.print("Input a round count: ");
         // Catch error in case of non-integer input
         try {
@@ -137,13 +145,13 @@ public class RockPaperScissors {
                 // Print error and quit if input out of bounds
                 System.out.println("The round count must be 1 - 10.");
                 System.exit(0);
+                return 0;
             }
         } catch(Exception e) {
             System.out.println("The round count must be an integer.");
             System.exit(0);
+            return 0;
         }
-        
-        return 0;
     }
     
     // Returns player input on their choice to play again
