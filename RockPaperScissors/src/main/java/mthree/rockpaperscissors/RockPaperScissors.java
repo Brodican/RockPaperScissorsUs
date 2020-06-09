@@ -96,19 +96,21 @@ public class RockPaperScissors {
     // Returns move choice input from user
     private static int ChooseMove() {
         
-        int choice;
-        
+        // Ask for choice input
+        System.out.print("Input a choice - 1 for Rock, 2 for Paper, 3 for Scissors: ");
         // Loop until correct input
         do {
             // Catch error in case of non-integer input
             try {
+                // Take choice input with scanner
                 s = new Scanner(System.in);
-                System.out.println("Input a choice - 1 for Rock, 2 for Paper, 3 for Scissors: ");
-                choice = s.nextInt();
+                // Int to store player choice
+                int choice = s.nextInt();
                 // If choice in right range, return choice, otherwise ask again
                 if ((choice <= 3) && (choice >=1)) {
                     return choice;
-                } else {
+                } 
+                else {
                     System.out.println("Your choice must be 1 for Rock, 2 for Paper, 3 for Scissors.");
                 }
             } catch(Exception e) {
@@ -120,17 +122,18 @@ public class RockPaperScissors {
     // Returns round count input from user
     private static int ChooseRounds() {
         
-        int rounds;
-        
+        // Ask for round count input
+        System.out.print("Input a round count: ");
         // Catch error in case of non-integer input
         try {
+            // Take round count input with scanner
             s = new Scanner(System.in);
-            // Ask for and take input
-            System.out.println("Input a round count: ");
-            rounds = s.nextInt();
+            // Input to store round choice
+            int rounds = s.nextInt();
             if ((rounds <= 10) && (rounds >= 1)) {
                 return rounds;
-            } else {
+            } 
+            else {
                 // Print error and quit if input out of bounds
                 System.out.println("The round count must be 1 - 10.");
                 System.exit(0);
@@ -150,6 +153,7 @@ public class RockPaperScissors {
         // Loop until correct input
         do {
             try {
+                // Ask if player wants to play again, take input
                 s = new Scanner(System.in);
                 System.out.println("Play again? y/n ");
                 String input = s.nextLine();
