@@ -50,14 +50,14 @@ import java.util.Scanner;
             roundCount = 0;
             
             // Get round input from player
-            rounds = ChooseRounds();
+            rounds = chooseRounds();
             
             // Inner round loop, loops once per round
             while (roundCount < rounds) {
                 // Output remaining rounds
                 System.out.println("Remaining rounds: " + (rounds - roundCount));
                 // Get player choice
-                choice = ChooseMove();
+                choice = chooseMove();
                 // Random computer choice
                 compChoice = r.nextInt(3) + 1;
                 
@@ -95,12 +95,12 @@ import java.util.Scanner;
             System.out.println("Losses: " + lossCount + ".\n");
             
             // Ask player if they want to play again, playAgain true if so outer loop loops again
-            playAgain = ChooseAgain();;
+            playAgain = chooseAgain();;
         }
     }
     
     // Returns move choice input from user
-    private static int ChooseMove() {
+    private static int chooseMove() {
         
         // Ask for choice input
         System.out.println();
@@ -127,7 +127,7 @@ import java.util.Scanner;
     }
     
     // Returns round count input from user
-    private static int ChooseRounds() {
+    private static int chooseRounds() {
         
         // Ask for round count input
         System.out.println();
@@ -156,7 +156,7 @@ import java.util.Scanner;
     
     // Returns player input on their choice to play again
     // true if they want to play again, false otherwise
-    private static boolean ChooseAgain() {
+    private static boolean chooseAgain() {
         
         // Loop until correct input
         do {
